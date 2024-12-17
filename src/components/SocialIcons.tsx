@@ -1,4 +1,3 @@
-import React from 'react';
 import { Instagram, MessageCircle } from 'lucide-react';
 import { TikTokIcon } from './icons/TikTokIcon';
 
@@ -14,7 +13,7 @@ export default function SocialIcons({
   return (
     <div className={`flex items-center space-x-6 ${className}`}>
       <a
-        href="https://wa.me/TUNUMERO"
+        href="https://wa.me/+18574104599"
         target="_blank"
         rel="noopener noreferrer"
         className="text-red-500 hover:text-red-400 transition-colors"

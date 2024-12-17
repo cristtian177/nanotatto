@@ -1,4 +1,3 @@
-import React from 'react';
 import { Shield, Palette, Award } from 'lucide-react';
 
 export default function Features() {
