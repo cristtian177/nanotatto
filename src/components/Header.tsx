@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Header() {
   return (
     <header className="relative h-screen">
@@ -14,8 +12,7 @@ export default function Header() {
       </div>
 
       <nav className="relative z-10 flex justify-between items-center p-6">
-        <h1 className="text-3xl font-bold" style=
-        >NanoTatto</h1>
+        <h1 className="text-3xl font-bold" style={{ fontFamily: 'Times New Roman, serif' }}>NanoTatto</h1>
         <div className="flex gap-6">
           <a href="#galeria" className="hover:text-gray-300">
             Galería
@@ -32,7 +29,7 @@ export default function Header() {
           Especialistas en tatuajes minimalistas y lettering
         </p>
         <a
-          href="https://wa.me/TUNUMERO"
+          href="https://wa.me/+18574104599"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-colors"
