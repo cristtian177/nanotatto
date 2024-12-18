@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface TikTokIconProps {
   size?: number;
   className?: string;

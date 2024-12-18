@@ -1,4 +1,6 @@
-import { MapPin, Clock, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { SOCIAL_LINKS } from '../utils/social';
+import ContactInfo from './contact/ContactInfo';
 import SocialIcons from './SocialIcons';
 
 export default function Contact() {
@@ -11,16 +13,14 @@ export default function Contact() {
           </h2>
 
           <div className="bg-zinc-800 p-8 rounded-lg space-y-6">
-            <div className="flex items-center">
-              <MapPin className="w-6 h-6 mr-4 text-red-500" />
-              <p>Solo atendemos en Boston/Masachusets - No realizamos viajes</p>
-            </div>
+            <ContactInfo />
+            
             <div className="flex items-center">
               <Phone className="w-6 h-6 mr-4 text-red-500" />
               <div>
                 <p className="mb-2">Reservas y consultas por WhatsApp:</p>
                 <a
-                  href="https://wa.me/+18574104599"
+                  href={SOCIAL_LINKS.WHATSAPP.url(SOCIAL_LINKS.WHATSAPP.number)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-red-500 hover:text-red-400"
@@ -28,10 +28,6 @@ export default function Contact() {
                   Contactar por WhatsApp
                 </a>
               </div>
-            </div>
-            <div className="flex items-center">
-              <Clock className="w-6 h-6 mr-4 text-red-500" />
-              <p>Horario de atención: Mar-Sab: 10:00 - 20:00</p>
             </div>
 
             <div className="border-t border-zinc-700 pt-6 mt-6">

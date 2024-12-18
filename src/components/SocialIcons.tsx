@@ -1,5 +1,4 @@
 import { Instagram, MessageCircle } from 'lucide-react';
-import { TikTokIcon } from './icons/TikTokIcon';
 
 interface SocialIconProps {
   className?: string;
@@ -10,10 +9,14 @@ export default function SocialIcons({
   className = '',
   size = 24,
 }: SocialIconProps) {
+  const WHATSAPP_NUMBER = '+18574104599';
+  const INSTAGRAM_USER = 'nanoart_tattoo';
+  const TIKTOK_USER = 'nanotattoo23';
+
   return (
     <div className={`flex items-center space-x-6 ${className}`}>
       <a
-        href="https://wa.me/+18574104599"
+        href={`https://wa.me/${WHATSAPP_NUMBER}`}
         target="_blank"
         rel="noopener noreferrer"
         className="text-red-500 hover:text-red-400 transition-colors"
@@ -22,7 +25,7 @@ export default function SocialIcons({
         <MessageCircle size={size} />
       </a>
       <a
-        href="https://instagram.com/nanoart_tattoo"
+        href={`https://instagram.com/${INSTAGRAM_USER}`}
         target="_blank"
         rel="noopener noreferrer"
         className="text-red-500 hover:text-red-400 transition-colors"
@@ -31,13 +34,24 @@ export default function SocialIcons({
         <Instagram size={size} />
       </a>
       <a
-        href="https://tiktok.com/@nanotattoo23"
+        href={`https://tiktok.com/@${TIKTOK_USER}`}
         target="_blank"
         rel="noopener noreferrer"
         className="text-red-500 hover:text-red-400 transition-colors"
         title="TikTok"
       >
-        <TikTokIcon size={size} />
+        <svg
+          width={size}
+          height={size}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+        </svg>
       </a>
     </div>
   );
