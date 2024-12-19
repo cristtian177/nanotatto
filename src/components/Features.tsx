@@ -18,7 +18,7 @@ export default function Features() {
           <div className="flex flex-col items-center text-center">
             <Award className="w-12 h-12 mb-4 text-red-500" />
             <h3 className="text-xl font-bold mb-2">Experiencia</h3>
-            <p className="text-gray-400">Especialistas en minimalismo y lettering</p>
+            <p className="text-gray-400">Experiencia en varios estilos de tatuajes</p>
           </div>
         </div>
       </div>
