@@ -1,48 +1,40 @@
 import { Instagram, MessageCircle } from 'lucide-react';
 
-interface SocialIconProps {
-  className?: string;
-  size?: number;
-}
+import { SOCIAL_LINKS } from '../utils/social';
 
-export default function SocialIcons({
-  className = '',
-  size = 24,
-}: SocialIconProps) {
-  const WHATSAPP_NUMBER = '+18574104599';
-  const INSTAGRAM_USER = 'nanoart_tattoo';
-  const TIKTOK_USER = 'nanotattoo23';
+export default function SocialIcons() {
+
 
   return (
-    <div className={`flex items-center space-x-6 ${className}`}>
+    <div className={`flex items-center space-x-6`}>
       <a
-        href={`https://wa.me/${WHATSAPP_NUMBER}`}
+        href={SOCIAL_LINKS.WHATSAPP}
         target="_blank"
         rel="noopener noreferrer"
         className="text-red-500 hover:text-red-400 transition-colors"
         title="WhatsApp"
       >
-        <MessageCircle size={size} />
+        <MessageCircle size={14} />
       </a>
       <a
-        href={`https://instagram.com/${INSTAGRAM_USER}`}
+        href={SOCIAL_LINKS.INSTAGRAM}
         target="_blank"
         rel="noopener noreferrer"
         className="text-red-500 hover:text-red-400 transition-colors"
         title="Instagram"
       >
-        <Instagram size={size} />
+        <Instagram size={14} />
       </a>
       <a
-        href={`https://tiktok.com/@${TIKTOK_USER}`}
+        href={SOCIAL_LINKS.TIKTOK}
         target="_blank"
         rel="noopener noreferrer"
         className="text-red-500 hover:text-red-400 transition-colors"
         title="TikTok"
       >
         <svg
-          width={size}
-          height={size}
+          width={14}
+          height={14}
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
