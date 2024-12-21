@@ -1,7 +1,7 @@
-import { Phone } from 'lucide-react';
-import { SOCIAL_LINKS } from '../utils/social';
-import ContactInfo from './contact/ContactInfo';
-import SocialIcons from './SocialIcons';
+import { SOCIAL_LINKS } from "../utils/social";
+import ContactInfo from "./contact/ContactInfo";
+import SocialIcons from "./SocialIcons";
+import { SiWhatsapp } from "react-icons/si";
 
 export default function Contact() {
   return (
@@ -14,19 +14,27 @@ export default function Contact() {
 
           <div className="bg-zinc-800 p-8 rounded-lg space-y-6">
             <ContactInfo />
-            
-            <div className="flex items-center">
-              <Phone className="w-6 h-6 mr-4 text-red-500" />
+
+            <div className="flex items-start space-x-4 p-4 border rounded-lg shadow-lg bg-white">
               <div>
-                <p className="mb-2">Reservas y consultas por WhatsApp:</p>
-                <a
-                  href={SOCIAL_LINKS.WHATSAPP.url(SOCIAL_LINKS.WHATSAPP.number)}
+                <p className="text-lg font-medium text-gray-800 mb-1">
+                  ¿Tienes preguntas o quieres reservar?
+                </p>
+                <p className="text-sm text-gray-600 mb-3">
+                  Contáctanos directamente por WhatsApp y recibe atención
+                  inmediata.
+                </p>
+                <div className="flex justify-center">
+                  <a
+                  href={SOCIAL_LINKS.WHATSAPP}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-red-500 hover:text-red-400"
-                >
+                  className="flex items-center inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-400 transition-all"
+                  >
+                  <SiWhatsapp className="w-5 h-5 mr-2" />
                   Contactar por WhatsApp
-                </a>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -34,7 +42,7 @@ export default function Contact() {
               <p className="text-center mb-6">
                 Síguenos en nuestras redes sociales para ver más trabajos:
               </p>
-              <SocialIcons className="justify-center" size={28} />
+              <SocialIcons />
             </div>
           </div>
         </div>

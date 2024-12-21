@@ -1,19 +1,19 @@
-import { MapPin, Clock } from 'lucide-react';
-import { CONTACT_INFO } from '../../utils/contact';
+import { SiGooglemaps, SiClockify } from 'react-icons/si';
+import { SocialData } from '../../utils/social';
 
 export default function ContactInfo() {
   return (
     <div className="space-y-6">
       <div className="flex items-center">
-        <MapPin className="w-6 h-6 mr-4 text-red-500" />
+        <SiGooglemaps size={24} className="mr-4 text-red-500" />
         <p>
-          Solo atendemos en {CONTACT_INFO.LOCATION.city}/{CONTACT_INFO.LOCATION.state} - {CONTACT_INFO.LOCATION.notice}
+          Atendemos exclusivamente en {SocialData.LOCATION} No realizamos visitas fuera de la ciudad.
         </p>
       </div>
       <div className="flex items-center">
-        <Clock className="w-6 h-6 mr-4 text-red-500" />
+        <SiClockify size={24} className="mr-4 text-red-500" />
         <p>
-          Horario de atención: {CONTACT_INFO.SCHEDULE.days}: {CONTACT_INFO.SCHEDULE.hours}
+          Horario de atención: Todos los días con cita previa.
         </p>
       </div>
     </div>
