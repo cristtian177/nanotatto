@@ -1,5 +1,6 @@
+import { SOCIAL_LINKS } from "../utils/social";
+
 export default function HeroSection() {
-  const WHATSAPP_NUMBER = '+18574104599';
 
   return (
     <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
@@ -8,7 +9,7 @@ export default function HeroSection() {
         Especialistas en tatuajes minimalistas y lettering
       </p>
       <a
-        href={`https://wa.me/${WHATSAPP_NUMBER}`}
+        href={`${SOCIAL_LINKS.WHATSAPP}`}
         target="_blank"
         rel="noopener noreferrer"
         className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition-colors"
