@@ -17,23 +17,23 @@ export const GALLERY_CATEGORIES: GalleryCategory[] = [
     description: 'Diseños simples y elegantes que capturan la esencia con líneas limpias',
     images: [
       {
-        url: 'https://scontent.fclo1-3.fna.fbcdn.net/v/t39.30808-6/469593499_563993662927683_4468755591448482681_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=1WyVbXrxcFUQ7kNvgGCbn0p&_nc_zt=23&_nc_ht=scontent.fclo1-3.fna&_nc_gid=AnXFw6zjFQD_zRu0m-arl5U&oh=00_AYDES4SJwzAyV7ZZhBdthkALA_pQ3jm1FYa0DhEHKlFxxQ&oe=676B9C19',
+        url: 'https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/445192126_447434357916948_6052777382014345198_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=9Mqo9Ab84wQQ7kNvgGbyTF4&_nc_zt=23&_nc_ht=scontent.fclo1-4.fna&_nc_gid=ARTaP50dqM1BO0seSa1W1j4&oh=00_AYBLWiD4Mr34QjGRIwazhmEn1dOtw1hybXM-9GNaVImqYA&oe=677F12AF',
         alt: 'Tatuaje minimalista 1'
       },
       {
-        url: 'https://scontent.fclo1-3.fna.fbcdn.net/v/t39.30808-6/465674852_550447407615642_8866540091104717614_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=xcDbLzRsYfUQ7kNvgEl1zLN&_nc_zt=23&_nc_ht=scontent.fclo1-3.fna&_nc_gid=Af2G4v1jboRgu7mmAgRrWa6&oh=00_AYAfWwJVgSOtayqD3_hw_JRSfZPsbOycYqYC3MFq0mAEww&oe=676B9887',
+        url: 'https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/450850067_467496199244097_278187889196573698_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=btiNqyjJbJIQ7kNvgHlQI5o&_nc_zt=23&_nc_ht=scontent.fclo1-4.fna&_nc_gid=AQlihzD69FdEAVDrg9wISRL&oh=00_AYDVfqqKcg3XWPkOuOan2CVj-teHgOxRbyY9JRa9QpplJA&oe=677F0AD7',
         alt: 'Tatuaje minimalista 2'
       },
       {
-        url: 'https://scontent.fclo1-3.fna.fbcdn.net/v/t39.30808-6/465557672_543632751630441_6674195034640545580_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=LVeYZ1gZ3poQ7kNvgEntcwy&_nc_zt=23&_nc_ht=scontent.fclo1-3.fna&_nc_gid=AKyftvWyGSoyy8zijZNudmK&oh=00_AYADJEylA_nCCQkxtg-AKqQglSh0QekYrxDNoPPbjfHgkg&oe=676B87AF',
+        url: 'https://scontent.fclo1-3.fna.fbcdn.net/v/t39.30808-6/465557672_543632751630441_6674195034640545580_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=oAThIAtnuqQQ7kNvgEmOmtV&_nc_zt=23&_nc_ht=scontent.fclo1-3.fna&_nc_gid=AOOjHLmNoZPSh_SmuRjwogA&oh=00_AYDEL61DEulzVZxjR-x95m_EOiYOFzRee67HlETUS-ww1Q&oe=677F15EF',
         alt: 'Tatuaje minimalista 3'
       },
       {
-        url: 'https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/450850067_467496199244097_278187889196573698_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Fof5DXULdoUQ7kNvgHI_A2v&_nc_zt=23&_nc_ht=scontent.fclo1-4.fna&_nc_gid=AKyPJD8zMg64ZbY-QqaeI3T&oh=00_AYDzI7amWyAU2hl5Ms-QUU_kSmYMLkNg3Ex5AQ4fs1bP5w&oe=676BB4D7',
+        url: 'https://scontent.fclo1-3.fna.fbcdn.net/v/t39.30808-6/469593499_563993662927683_4468755591448482681_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=0cB_-GoO2jUQ7kNvgFi-Mk5&_nc_zt=23&_nc_ht=scontent.fclo1-3.fna&_nc_gid=A2Zu-KcvtpuGqhnyHFDNuzZ&oh=00_AYDyJqxAH904FYmHsuHDt7POWTGrxXOXDdyKFt2vssTdIg&oe=677F2A59',
         alt: 'Tatuaje minimalista 4'
       },
       {
-        url: 'https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/445192126_447434357916948_6052777382014345198_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=0R59VskVCs8Q7kNvgGPVMgf&_nc_zt=23&_nc_ht=scontent.fclo1-4.fna&_nc_gid=A9cF-xMFNFXlVAbrPbJ64SH&oh=00_AYC-IIG5JCKm06XE6RnhA4JUqPSPaRAsHfFOZ4JQA55sHA&oe=676B846F',
+        url: 'https://scontent.fclo1-3.fna.fbcdn.net/v/t39.30808-6/465674852_550447407615642_8866540091104717614_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=DL4nQFAhQLsQ7kNvgEDKd1j&_nc_zt=23&_nc_ht=scontent.fclo1-3.fna&_nc_gid=ABDUSDN1SAfg9AV09yk3hJQ&oh=00_AYB50Rp7th4EPtrKiDP_L3yzfr0lVFfTS2oep4UwzS4vng&oe=677F26C7',
         alt: 'Tatuaje minimalista 5'
       }
     ]

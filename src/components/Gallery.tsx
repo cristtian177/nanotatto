@@ -1,34 +1,37 @@
-import { useState, useEffect } from "react";
-import { GALLERY_CATEGORIES } from "../utils/gallery";
+import React, { useState, useEffect } from "react";
+import { GALLERY_CATEGORIES } from "../utils/gallery"; // Importa los datos del archivo JSON
 
-export default function Gallery() {
-  const [activeCategory, setActiveCategory] = useState(
-    GALLERY_CATEGORIES[0].id
-  );
-  const [selectedImage, setSelectedImage] = useState<string | null>(null); // Modal para abrir imagen
-  const [currentIndex, setCurrentIndex] = useState(0); // Control del índice del carrusel
+const TattooCarousel: React.FC = () => {
+  const sections = GALLERY_CATEGORIES;
 
-  const currentCategory = GALLERY_CATEGORIES.find(
-    (cat) => cat.id === activeCategory
-  );
-  const images = currentCategory?.images || [];
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [modalImage, setModalImage] = useState<string | null>(null);
 
-  // Cambio automático del carrusel cada 5 segundos
+  const currentSection = sections[currentSectionIndex];
+  const currentImage = currentSection.images[currentImageIndex];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => {
+      return prevIndex === currentSection.images.length - 1 ? 0 : prevIndex + 1;
+    });
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => {
+      return prevIndex === 0 ? currentSection.images.length - 1 : prevIndex - 1;
+    });
+  };
+
+  const changeSection = (index: number) => {
+    setCurrentSectionIndex(index);
+    setCurrentImageIndex(0);
+  };
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 5000); // Cambia cada 5 segundos
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  // Función para cambiar manualmente entre imágenes
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
+    const timer = setInterval(nextImage, 5000); // Cambia de imagen cada 5 segundos
+    return () => clearInterval(timer);
+  }, [currentSection.images.length, currentImageIndex]);
 
   return (
     <section id="galeria" className="py-20 bg-black">
@@ -39,86 +42,111 @@ export default function Gallery() {
 
         {/* Botones de Categorías */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {GALLERY_CATEGORIES.map((category) => (
+          {sections.map((section, index) => (
             <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-2 rounded-full transition-colors ${activeCategory === category.id ? "bg-red-600 text-white" : "bg-zinc-800 text-gray-300 hover:bg-zinc-700"}`}
+              key={section.id}
+              onClick={() => changeSection(index)}
+              className={`px-6 py-2 rounded-full transition-colors ${
+                index === currentSectionIndex
+                  ? "bg-red-600 text-white"
+                  : "bg-zinc-800 text-gray-300 hover:bg-zinc-700"
+              }`}
             >
-              {category.name}
+              {section.name}
             </button>
           ))}
         </div>
 
-        <div className="flex justify-center w-full mb-8 h-full">
-          <div className="flex justify-center items-center w-full h-full">
-            {/* Carrusel */}
-            <div id="carousel" className="relative  h-96 w-64">
-              {/* Contenedor del Carrusel */}
-              <div className="relative  overflow-hidden rounded-lg h-full w-full">
-                {images.map((_images, index) => (
-                  <div
-                    key={index}
-                    className={`absolute w-full h-full transition-opacity duration-700 ease-in-out ${index === currentIndex ? "opacity-100" : "opacity-0"}`}
-                    onClick={() => setSelectedImage(images[index].url)} // Abre modal al hacer clic
-                  >
-                    <img
-                      src={_images.url}
-                      alt={_images.alt}
-                      className="w-full h-full object-cover cursor-pointer"
-                    />
-                  </div>
-                ))}
-              </div>
+        {/* Carrusel */}
+        <div className="relative h-[500px]  w-full max-w-3xl mx-auto">
+          <div className="relative overflow-hidden rounded-lg h-full w-full">
+            <img
+              src={currentImage.url}
+              alt={currentImage.alt}
+              className="w-full h-full object-cover cursor-pointer"
+              onClick={() => setModalImage(currentImage.url)}
+            />
 
-              {/* Indicadores */}
-              <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3">
-                {images.map((_, index) => (
+            {/* Indicadores */}
+            <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3">
+                {sections.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setCurrentIndex(index)}
-                      className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-red-600" : "bg-gray-400"}`}
+                    onClick={() => setCurrentImageIndex(index)}
+                      className={`w-3 h-3 rounded-full ${index === currentImageIndex ? "bg-red-600" : "bg-gray-400"}`}
                     ></button>
                 ))}
-              </div>
-
-              {/* Controles */}
-              <button
-                onClick={handlePrev}
-                className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-              >
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
-                  ‹
-                </span>
-              </button>
-              <button
-                onClick={handleNext}
-                className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-              >
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50">
-                  ›
-                </span>
-              </button>
             </div>
+
+            {/* Controles */}
+            <button
+              onClick={prevImage}
+              type="button"
+              className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-prev
+            >
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg
+                  className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 6 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 1 1 5l4 4"
+                  />
+                </svg>
+                <span className="sr-only">Previous</span>
+              </span>
+            </button>
+            <button
+              onClick={nextImage}
+              type="button"
+              className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+              data-carousel-next
+            >
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg
+                  className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 6 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 9 4-4-4-4"
+                  />
+                </svg>
+                <span className="sr-only">Next</span>
+              </span>
+            </button>
           </div>
         </div>
 
         {/* Modal */}
-        {selectedImage && (
+        {modalImage && (
           <div
             className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-            onClick={() => setSelectedImage(null)} // Cierra modal al hacer clic fuera
+            onClick={() => setModalImage(null)}
           >
             <div className="relative">
               <img
-                src={selectedImage}
+                src={modalImage}
                 alt="Imagen seleccionada"
                 className="max-w-full max-h-screen object-contain cursor-pointer"
                 onClick={(e) => e.stopPropagation()}
               />
-              {/* Botón para cerrar */}
               <button
-                onClick={() => setSelectedImage(null)}
+                onClick={() => setModalImage(null)}
                 className="absolute top-4 right-4 text-white text-3xl font-bold cursor-pointer hover:text-red-500 transition-colors"
               >
                 ×
@@ -129,4 +157,6 @@ export default function Gallery() {
       </div>
     </section>
   );
-} 
+};
+
+export default TattooCarousel;
